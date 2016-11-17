@@ -1,3 +1,5 @@
+import 'core-js/es6';
+
 /**
  * @ngdoc directive
  * @name angular-diff.directive:tribeButton
