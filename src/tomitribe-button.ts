@@ -1,5 +1,3 @@
-import 'core-js/es6';
-
 /**
  * @ngdoc directive
  * @name angular-diff.directive:tribeButton
@@ -13,6 +11,8 @@ import 'core-js/es6';
  */
 
 module tomitribe_button {
+    require('./tomitribe-button.sass');
+
     angular
         .module('tomitribe-button', [])
         .directive('tribeButton', tribeButton);

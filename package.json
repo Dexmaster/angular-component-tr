@@ -1,13 +1,12 @@
 {
   "name": "angular-tomitribe-button",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Test Tomitribe component for transition",
   "repository": "https://github.com/Dexmaster/angular-component-tr.git",
   "license": "MIT",
   "main": "index.ts",
   "dependencies": {
     "angular": "^1.5.8",
-    "bourbon": "^4.2.7",
-    "core-js": "^2.4.1"
+    "bourbon": "^4.2.7"
   }
 }
