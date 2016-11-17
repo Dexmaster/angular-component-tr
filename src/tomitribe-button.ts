@@ -22,7 +22,7 @@ module tomitribe_button {
 
         return {
             restrict: 'E',
-            template: require('./button.jade'),
+            template: require('./tomitribe-button.jade'),
             compile: compile,
             replace: true,
             transclude: true
