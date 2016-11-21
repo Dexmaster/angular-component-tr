@@ -27,8 +27,8 @@ $white:         #FFFFFF
 
 $primary:               $orange !default
 $primary-hue-1:         $light-orange !default
-$accent:                $grey  !default
-$accent-hue-1:          $dark-grey  !default
+$accent:                $dark-grey  !default
+$accent-hue-1:          $grey  !default
 $accent-hue-2:          $light-grey  !default
 $colors:                ('primary': $primary, 'primary-hue-1': $primary-hue-1, 'accent': $accent, 'accent-hue-1': $accent-hue-1,'accent-hue-2': $accent-hue-2)
 
@@ -126,6 +126,10 @@ $base-font-size:        16px            !default
       vertical-align: top
       line-height: map-get($sizes, $size)
 
+    .rt
+      vertical-align: top
+      font-size: map-get($sizes, $size)*0.9
+
   @if $type == 'icon'
     @include font-size((map-get($btn-icon-size, $size)))
 
@@ -136,7 +140,7 @@ $base-font-size:        16px            !default
   @if $type == 'raised' or $type == 'fab'
     color: $white
     background-color: map-get($colors, $color)
-    :hover
+    &:hover
       background-color: map-get($colors, '#{$color}-hue-1')
     .ripple
       background-color: darken(map-get($colors, $color), 50%)
@@ -146,7 +150,7 @@ $base-font-size:        16px            !default
     .ripple
       background-color: map-get($colors, $color)
     &:hover
-      background-color: rgba(map-get($colors, $color), 0.15)
+      color: map-get($colors, '#{$color}-hue-1')
 
 @mixin btn-type($type)
   @if $type == 'raised' or $type == 'flat'

@@ -61,7 +61,7 @@ module tomitribe_button {
 
             element.removeClass(buttonClass);
 
-            buttonClass = buttonBase + ' btn--' + buttonSize + ' btn--' + buttonColor + ' btn--' + buttonType;
+            buttonClass = buttonBase + ' btn-' + buttonSize + ' btn-' + buttonColor + ' btn-' + buttonType;
 
             element.addClass(buttonClass);
         }
