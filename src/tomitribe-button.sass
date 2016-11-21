@@ -4,7 +4,7 @@ $btn-padding:   ('xs': 10px, 's': 12px, 'm': 14px, 'l': 16px, 'xl': 26px)
 $btn-font-size: ('xs': 11px, 's': 11px, 'm': 13px, 'l': 14px, 'xl': 16px)
 $btn-icon-size: ('xs': 13px, 's': 15px, 'm': 20px, 'l': 24px, 'xl': 28px)
 
-$base-round:            2px             !default
+$base-round:            20px             !default
 
 $size-xs:               24px !default
 $size-s:                30px !default
@@ -23,6 +23,7 @@ $light-grey:    #E2E1E1
 $green:         #1AAE6A
 $amber:         #F8AC59
 $red:           #F16060
+$white:         #FFFFFF
 
 $primary:               $orange !default
 $primary-hue-1:         $light-orange !default
@@ -100,7 +101,7 @@ $base-font-size:        16px            !default
 @mixin btn-disabled($type)
   box-shadow: none !important
   cursor: not-allowed
-  color: $dark-grey !important
+  color: $light-grey !important
 
   @if $type == 'raised' or $type == 'fab'
     background-color: $grey !important
@@ -133,11 +134,10 @@ $base-font-size:        16px            !default
 
 @mixin btn-color($color, $type)
   @if $type == 'raised' or $type == 'fab'
-    @if $color == 'white' or $color == 'light-blue' or $color == 'cyan' or $color == 'light-green' or $color == 'lime' or $color == 'yellow' or $color == 'amber' or $color == 'orange' or $color == 'grey'
-      color: $dark-grey
-    @else
-      color: $light-grey
+    color: $white
     background-color: map-get($colors, $color)
+    :hover
+      background-color: map-get($colors, '#{$color}-hue-1')
     .ripple
       background-color: darken(map-get($colors, $color), 50%)
 
@@ -177,75 +177,75 @@ $base-font-size:        16px            !default
   @include btn-reset
 
 // Disabled states
-.btn--raised[disabled],
-%btn--raised[disabled],
-.btn--raised.btn--is-disabled,
-%btn--raised%btn--is-disabled
+.btn-raised[disabled],
+%btn-raised[disabled],
+.btn-raised.btn-is-disabled,
+%btn-raised%btn-is-disabled
   @include btn-disabled('raised')
 
-.btn--fab[disabled],
-%btn--fab[disabled],
-.btn--fab.btn--is-disabled,
-%btn--fab%btn--is-disabled
+.btn-fab[disabled],
+%btn-fab[disabled],
+.btn-fab.btn-is-disabled,
+%btn-fab%btn-is-disabled
   @include btn-disabled('fab')
 
-.btn--flat[disabled],
-%btn--flat[disabled],
-.btn--flat.btn--is-disabled,
-%btn--flat%btn--is-disabled
+.btn-flat[disabled],
+%btn-flat[disabled],
+.btn-flat.btn-is-disabled,
+%btn-flat%btn-is-disabled
   @include btn-disabled('flat')
 
-.btn--icon[disabled],
-%btn--icon[disabled],
-.btn--icon.btn--is-disabled,
-%btn--icon%btn--is-disabled
+.btn-icon[disabled],
+%btn-icon[disabled],
+.btn-icon.btn-is-disabled,
+%btn-icon%btn-is-disabled
   @include btn-disabled('icon')
 
 // Sizes
 @each $key, $size in $sizes
-  .btn--#{$key},
-  %btn--#{$key}
+  .btn-#{$key},
+  %btn-#{$key}
     @include btn-size($key)
 
 // Raised / FAB buttons
-.btn--raised,
-%btn--raised
+.btn-raised,
+%btn-raised
   @include btn-type('raised')
 
-.btn--fab,
-%btn--fab
+.btn-fab,
+%btn-fab
   @include btn-type('fab')
 
 @each $key, $color in $colors
-  .btn--raised.btn--#{$key},
-  %btn--raised%btn--#{$key}
+  .btn-raised.btn-#{$key},
+  %btn-raised%btn-#{$key}
     @include btn-color($key, 'raised')
-  .btn--fab.btn--#{$key},
-  %btn--fab%btn--#{$key}
+  .btn-fab.btn-#{$key},
+  %btn-fab%btn-#{$key}
     @include btn-color($key, 'fab')
 
 // Flat / Icon button
-.btn--flat,
-%btn--flat
+.btn-flat,
+%btn-flat
   @include btn-type('flat')
 
-.btn--icon,
-%btn--icon
+.btn-icon,
+%btn-icon
   @include btn-type('icon')
 
 @each $key, $color in $colors
-  .btn--flat.btn--#{$key},
-  %btn--flat%btn--#{$key}
+  .btn-flat.btn-#{$key},
+  %btn-flat%btn-#{$key}
     @include btn-color($key, 'flat')
-  .btn--icon.btn--#{$key},
-  %btn--icon%btn--#{$key}
+  .btn-icon.btn-#{$key},
+  %btn-icon%btn-#{$key}
     @include btn-color($key, 'icon')
 
 // Icon / FAB buttons
 @each $key, $size in $sizes
-  .btn--icon.btn--#{$key},
-  %btn--icon%btn--#{$key}
+  .btn-icon.btn-#{$key},
+  %btn-icon%btn-#{$key}
     @include btn-size($key, 'icon')
-  .btn--fab.btn--#{$key},
-  %btn--fab%btn--#{$key}
+  .btn-fab.btn-#{$key},
+  %btn-fab%btn-#{$key}
     @include btn-size($key, 'fab')
